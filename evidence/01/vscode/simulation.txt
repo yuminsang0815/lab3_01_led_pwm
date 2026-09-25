@@ -1,0 +1,12 @@
+ *  Executing task in folder PROJECT: C:\Users\a2391\AppData\Local\Microsoft\WindowsApps\python.EXE tools/fpga_lab.py simulate 
+
+RUN C:\iverilog\bin\iverilog.EXE -g2012 -Wall -I C:\Users\a2391\lab3_19_led_pwm\src -I C:\Users\a2391\lab3_19_led_pwm\sim -s tb_led_pwm -o C:\Users\a2391\lab3_19_led_pwm\build\sim\run-9b0a3c7a503545869bbb68d4e4531d35\sim.vvp C:\Users\a2391\lab3_19_led_pwm\src\button_onepulse.v C:\Users\a2391\lab3_19_led_pwm\src\pwm_channel.v C:\Users\a2391\lab3_19_led_pwm\src\lab3_led_pwm.v C:\Users\a2391\lab3_19_led_pwm\sim\tb_led_pwm.sv
+
+RUN C:\iverilog\bin\vvp.EXE -N C:\Users\a2391\lab3_19_led_pwm\build\sim\run-9b0a3c7a503545869bbb68d4e4531d35\sim.vvp
+VCD info: dumpfile wave.vcd opened for output.
+LAB3_LED_PWM_PASS checks=4
+C:\Users\a2391\lab3_19_led_pwm\sim\tb_led_pwm.sv:60: $finish called at 3831000 (1ps)
+
+시뮬레이션 실행 완료. 진리표·자기검사·파형으로 회로의 정답 여부를 확인하세요.
+WAVE C:\Users\a2391\lab3_19_led_pwm\build\sim\wave.vcd
+ *  Terminal will be reused by tasks, pressany key to close it. 
