@@ -9,7 +9,7 @@
 
 ### 핵심 파라미터 계산
 1. **PWM 주기 카운트 (`PERIOD_CYCLES`)**:
-   - 입력 주 클록 주파수 $f_{\mathrm{clk}} = 50\text{ MHz} = 50,000,000\text{ Hz}$[cite: 14]
+   - 입력 주 클록 주파수 $f_{\mathrm{clk}} = 50\text{ MHz} = 50,000,000\text{ Hz}$
    - PWM 목표 스위칭 주파수 $f_{\mathrm{pwm}} = 1\text{ kHz} = 1,000\text{ Hz}$ (LED 깜빡임이 눈에 인지되지 않는 주파수)
    - 1주기당 클록 수:
      $$\text{PERIOD\_CYCLES} = \frac{f_{\mathrm{clk}}}{f_{\mathrm{pwm}}} = \frac{50,000,000}{1,000} = 50,000\text{ cycles}$$
@@ -24,13 +24,13 @@
 
    - 디바운스 카운터 비트 폭:
      $$\text{COUNT\_WIDTH} = \lceil\log_2(1,000,000)\rceil = 20\text{ bits}$$
-[cite: 14]
 
-3. **단계별 임계값 (`threshold`) 및 듀티비**[cite: 14]:
-   - 10단계(`LEVELS = 10`) 기준, $\text{threshold} = \frac{\text{PERIOD\_CYCLES} \times \text{level}}{\text{LEVELS}} = 5,000 \times \text{level}$[cite: 14]
-   - level=0: threshold=0 (High 클록 0개, 듀티 0%, 완전 소등)[cite: 14]
-   - level=3: threshold=15,000 (High 클록 15,000개, 듀티 30%)[cite: 14]
-   - level=10: threshold=50,000 (상시 High, 듀티 100%, 최대 밝기)[cite: 14]
+
+3. **단계별 임계값 (`threshold`) 및 듀티비**:
+   - 10단계(`LEVELS = 10`) 기준, $\text{threshold} = \frac{\text{PERIOD\_CYCLES} \times \text{level}}{\text{LEVELS}} = 5,000 \times \text{level}$
+   - level=0: threshold=0 (High 클록 0개, 듀티 0%, 완전 소등)
+   - level=3: threshold=15,000 (High 클록 15,000개, 듀티 30%)
+   - level=10: threshold=50,000 (상시 High, 듀티 100%, 최대 밝기)
 
 ---
 
@@ -64,7 +64,7 @@
 
 ### 정상 시뮬레이션 확인
 - **[종료 로그](../../evidence/01/vscode/simulation.txt)**: `LAB3_LED_PWM_PASS checks=4`, 종료 시각 `3831000 ps (3831 ns)`
-- **파형 분석**:
+- **[파형 분석](../../evidence/01/vscode/wave.png)**:
   - `level=0` 구간: `led[7:0]`이 상시 0을 유지.
   - `level=3` 구간: 1주기 10클록 중 3클록 동안 `led=8'hFF`, 나머지 7클록 동안 `led=8'h00` 표출.
   - `level=10` 구간: 전체 주기에 걸쳐 `led=8'hFF`로 High 유지.
